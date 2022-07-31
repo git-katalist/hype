@@ -4,13 +4,14 @@ import { Theme } from "../styles/Theme";
 import { Global } from "../styles/Global";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
+import { prefix } from "./utils/prefix";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={Theme}>
       <Global />
       <Container>
-        <Navbar />
+        <Navbar prefix={prefix} />
         <Component {...pageProps} />
       </Container>
     </ThemeProvider>
