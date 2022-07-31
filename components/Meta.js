@@ -1,4 +1,4 @@
-import { prefix } from "../pages/utils/prefix";
+import { prefix } from "../utils/prefix";
 import Head from "next/head";
 
 const Meta = ({ title, keywords, description }) => {

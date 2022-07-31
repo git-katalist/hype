@@ -4,7 +4,7 @@ import { Theme } from "../styles/Theme";
 import { Global } from "../styles/Global";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
-import { prefix } from "./utils/prefix";
+import { prefix } from "../utils/prefix";
 
 function MyApp({ Component, pageProps }) {
   return (
