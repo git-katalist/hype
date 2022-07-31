@@ -1,20 +1,20 @@
-import Document, {Html, Head, Main, NextScript } from "next/document"
-import { ServerStyleSheet } from "styled-components"
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
-//--------------For styled-components only------------//
+  //--------------For styled-components only------------//
   static async getInitialProps(ctx) {
-    const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
             sheet.collectStyles(<App {...props} />),
-        })
+        });
 
-      const initialProps = await Document.getInitialProps(ctx)
+      const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
         styles: (
@@ -23,37 +23,28 @@ export default class MyDocument extends Document {
             {sheet.getStyleElement()}
           </>
         ),
-      }
+      };
     } finally {
-      sheet.seal()
+      sheet.seal();
     }
   }
-//---------------------------------------------------//
+  //---------------------------------------------------//
   render() {
     return (
-        <Html lang="en">
-            <Head>
-                <link
-                  rel="preload"
-                  href="/fonts/ProximaNova-Bold.woff"
-                  as="font"
-                  type="font/woff"
-                  crossOrigin=""
-                />
-                <link
-                  rel="preload"
-                  href="/fonts/ProximaNova-Regular.woff"
-                  as="font"
-                  type="font/woff"
-                  crossOrigin=""
-                />
-            </Head>
-            <body>
-                <Main />
-                <NextScript />
-            </body>
-        </Html>
+      <Html lang="en">
+        <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
     );
+  }
 }
-}
-
