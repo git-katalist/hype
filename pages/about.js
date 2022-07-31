@@ -1,5 +1,12 @@
+import Meta from "../components/Meta";
+
 const about = () => {
-  return <div>about</div>;
+  return (
+    <>
+      <Meta title="About Us | Katalist" />
+      <h1>about</h1>
+    </>
+  );
 };
 
 export default about;
