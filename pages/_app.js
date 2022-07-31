@@ -1,15 +1,25 @@
 import { ThemeProvider } from "styled-components";
 
 import { Theme } from "../styles/Theme";
-import { Global } from "styles/Global";
+import { Global } from "../styles/Global";
+import styled from "styled-components";
+import Navbar from "../components/Navbar";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={Theme}>
       <Global />
-      <Component {...pageProps} />
+      <Container>
+        <Navbar />
+        <Component {...pageProps} />
+      </Container>
     </ThemeProvider>
   );
 }
+
+const Container = styled.div`
+  background-color: #67bc98;
+  height: 100vh;
+`;
 
 export default MyApp;

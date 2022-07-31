@@ -15,11 +15,11 @@ height:100%;
 height:auto;
 display: grid;
 grid-template-rows: auto 1fr auto;
-background-color: magenta;
+/* background-color: magenta; */
 }
 
 body{
-background-color:${({ theme }) => theme.colors.primary};
+/* background-color:${({ theme }) => theme.colors.primary}; */
 }
 
 main{
